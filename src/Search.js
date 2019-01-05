@@ -19,6 +19,13 @@ export default class Search extends Component {
     this.handleAuthorNameInput = this.handleAuthorNameInput.bind(this)
     this.handleIsbnInput = this.handleIsbnInput.bind(this)
     this.handleGenreInput = this.handleGenreInput.bind(this)
+    this.clear = this.clear.bind(this)
+  }
+
+  clear() {
+    this.setState({
+      results: []
+    })
   }
 
   handleSearchSubmit(event) {
@@ -29,7 +36,13 @@ export default class Search extends Component {
       })
       .then((responseJson) => {
         console.log(responseJson);
-        this.setState({ results: responseJson.items })
+        this.setState({
+          titleName: '',
+          authorName: '',
+          isbn: '',
+          genre: '',
+          results: responseJson.items
+        })
       })
   }
 
@@ -57,7 +70,7 @@ export default class Search extends Component {
         <form className="searchForm"
           onSubmit={this.handleSearchSubmit}
         >
-          <label>Title Name
+          <label>Title
             <input
               type='text'
               name='title'
@@ -66,7 +79,7 @@ export default class Search extends Component {
           </label>
           <br></br>
 
-          <label>Author Name
+          <label>Author
            <input
               type='text'
               name='author'
@@ -92,20 +105,24 @@ export default class Search extends Component {
             />
           </label>
           <button>Search</button>
+          <button className='clearButton' onClick={this.clear}>Clear</button>
         </form>
         <div className='bookResults'>
           <ul>
             {this.state.results.map((val, idx) => {
               return (
                 <li key={idx}>
-                  <h4>Title: {val.volumeInfo.title}</h4>
-                  <h4>Author Name: {val.volumeInfo.authors}</h4>
-                  <h4>Category: {val.volumeInfo.categories}</h4>
-                  <p>{val.volumeInfo.description}</p>
-                  <img src={val.volumeInfo.imageLinks.thumbnail} alt='https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg' />
+                  <div className='bookInfo'>
+                    <h4>Title: {val.volumeInfo.title}</h4>
+                    <h4>Author Name: {val.volumeInfo.authors}</h4>
+                    <h4>Category: {val.volumeInfo.categories}</h4>
+                  </div>
+                  <div className='bookDescription'>
+                    <p className='description'>Description: {val.volumeInfo.description}</p>
+                    <img src={val.volumeInfo.imageLinks.thumbnail} alt='https://image.freepik.com/free-vector/books-stack-realistic_1284-4735.jpg' />
+                  </div>
+                  <hr className='lineBreak'></hr>
                 </li>
-
-
               )
             })}
           </ul>
