@@ -1,0 +1,45 @@
+li, ul {
+  list-style: none;
+}
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+label{
+  padding:10px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+input[type=text] {
+  width: 400px;
+  padding: 12px 20px;
+  margin: 10px 10px;
+  border: 2px solid rgb(71, 69, 69);
+  border-radius: 4px;
+}
+
+button {
+  width: 200px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(34, 150, 150);
+}
+
+.bookResults {
+  display: flex;
+  flex-direction: column;
+}
