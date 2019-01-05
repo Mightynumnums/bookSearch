@@ -1,3 +1,31 @@
+A small app that uses the Open Library Search API (through google) and gives a user search capabilites.
+The user can search items by:
+
+- Title Name
+- Author Name
+- Genre
+- ISBN number
+
+The user then can view the items in detail by clicking on them.
+
+To view the project visit:
+
+or:
+- clone from gitHub onto your own machine
+- cd into the repository
+- npm (or yarn) install
+- npm run build
+- npm run start (to view in the browser)
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
